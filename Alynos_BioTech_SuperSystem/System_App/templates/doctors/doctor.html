@@ -1,0 +1,114 @@
+{%extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">All Doctors</span>
+          <h1 class="text-capitalize mb-5 text-lg">Specalized doctors</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- portfolio -->
+<section class="section doctors">
+  <div class="container">
+  	  <div class="row justify-content-center">
+             <div class="col-lg-6 text-center">
+                <div class="section-title">
+                    <h2>Doctors</h2>
+                    <div class="divider mx-auto my-4"></div>
+                    <p>Experience the competitive edge that comes from a deep understanding of clinical nuances, compliance, and regulatory landscapes. Elevate your biotech sales approach—choose Alynos Doctor Section for a future where expertise meets excellence.</p>
+                </div>
+            </div>
+        </div>
+
+      <div class="col-12 text-center  mb-5">
+	        <div class="btn-group btn-group-toggle " data-toggle="buttons">
+	          <label class="btn active ">
+	            <input type="radio" name="shuffle-filter" value="all" checked="checked" />All Department
+	          </label>
+	          <label class="btn ">
+	            <input type="radio" name="shuffle-filter" value="cat1" />Cardiology
+	          </label>
+	          <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat2" />Dental
+	          </label>
+	          <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat3" />Neurology
+	          </label>
+	          <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat4" />Medicine
+	          </label>
+	           <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat5" />Pediatric
+	          </label>
+	          <label class="btn">
+	            <input type="radio" name="shuffle-filter" value="cat6" />Traumatology
+	          </label>
+	        </div>
+      </div>
+
+
+
+    <div class="row shuffle-wrapper portfolio-gallery">
+    {% for doctor in doctors %}
+      	<div class="{% if doctor.name == 'Harrison Samuel' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% elif doctor.name == 'Alexander James' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% elif doctor.name == 'Dennis Junior' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% elif doctor.name == 'Edward John' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% elif doctor.name == 'George Wellington' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% elif doctor.name == 'Henry Samuel' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% elif doctor.name == 'Lucas Tim' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% elif doctor.name == 'Thomas Henry' %}col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item{% endif %}"
+             {% if doctor.name == 'Harrison Samuel' %}data-groups="[&quot;cat4&quot;]" {% elif doctor.name == 'Alexander James' %}data-groups="[&quot;cat2&quot;,&quot;cat4&quot;]" {% elif doctor.name == 'Dennis Junior' %}data-groups="[&quot;cat6&quot;]" {% elif doctor.name == 'Edward John' %}data-groups="[&quot;cat5&quot;]" {% elif doctor.name == 'George Wellington' %}data-groups="[&quot;cat3&quot;]" {% elif doctor.name == 'Henry Samuel' %}data-groups="[&quot;cat4&quot;]" {% elif doctor.name == 'Lucas Tim' %}data-groups="[&quot;cat1&quot;]" {% elif doctor.name == 'Thomas Henry' %}data-groups="[&quot;cat1&quot;]"{% endif %}>
+	      	<div class="position-relative doctor-inner-box">
+		        <div class="doctor-profile">
+	               <div class="doctor-img">
+                       {% if doctor.image %}
+	               		<img src="{{ doctor.image.url }}" alt="{{ doctor.name }} Image" class="img-fluid w-100">
+                       {% endif %}
+	               </div>
+	            </div>
+                <div class="content mt-3">
+                	<h4 class="mb-0"><a href="{% url 'BioTech_App:doctor_single' doctor.id %}">{{doctor.name}}</a></h4>
+                	<p>{{ doctor.specialization }}</p>
+                </div> 
+	      	</div>
+      	</div>
+    {% endfor %}
+    </div>
+  </div>
+
+
+
+<!-- /portfolio -->
+<section class="section cta-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7">
+				<div class="cta-content">
+					<div class="divider mb-4"></div>
+					<h2 class="mb-5 text-lg">We are pleased to offer you the <span class="title-color">chance to have the healthy</span></h2>
+					<a href="{% url 'BioTech_App:appointment' %}" class="btn btn-main-2 btn-round-full">Get appointment<i class="icofont-simple-right  ml-2"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+</section>
+
+
+{% endblock %}
+

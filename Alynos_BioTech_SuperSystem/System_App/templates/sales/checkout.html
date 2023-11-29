@@ -1,0 +1,137 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Your Almost Done</span>
+          <h1 class="text-capitalize mb-5 text-lg">Your Checkout</h1>
+          <span class="text-white">Fill in your details and you're good to go</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="summary section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="summary">
+          <h2>Order Summary</h2>
+          {% if cart_summary %}
+              <p>This is the cart summary:</p>
+              <ul class="summary-list">
+                  {% for item in cart_items %}
+                      <li>
+                          <span class="item-title">{{ item.title }}</span>
+                          <span class="item-price">KES {{ item.price }}/=</span><br>
+                          <span class="item-quantity"> Purchased Quantity =  {{ item.quantity }} items</span>
+                      </li>
+                  {% endfor %}
+              </ul>
+              <p class="total-price">Total Price: {{ total_price }}</p>
+          {% elif cart %}
+              <ul class="summary-list">
+                  {% for item in cart %}
+                      <li>
+                          <span class="item-title">{{ item.title }}</span>
+                          <span class="item-price">KES {{ item.price }}/=</span>
+                      </li>
+                  {% endfor %}
+              </ul>
+              <p class="total-price">Total Price: {{ total_price }}</p>
+          {% else %}
+              <p>Your summary is empty.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+          <h2 class="mb-2 title-color">Billing Details</h2>
+          <p class="info">Kindly Fill Out Your Information Before Proceeding to Payment For your Orders.</p>
+          <p class="mb-4">User Order Details.</p>
+          <form id="checkoutForm" class="appoinment-form" method="post" action="{% url 'BioTech_App:payment_page' %}?cart_summary=true">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                    {% for item in cart_items %}
+                        <input type="hidden" name="product_id_{{ forloop.counter }}" value="{{ item.product.id }}">
+                        <input type="hidden" name="quantity_{{ forloop.counter }}" value="{{ item.quantity }}">
+                    {% endfor %}
+                  <label for="fname">First Name</label>
+                  <input name="fname" id="fname" type="text" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="lname">Last Name</label>
+                  <input name="lname" id="lname" type="text" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="address">Your Address</label>
+                  <input name="address" id="address" type="text" class="form-control" placeholder="1234 Main St." required>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="address2">Address 2 (Optional)</label>
+                  <input name="address2" id="address2" type="text" class="form-control" placeholder="1234 Main St.">
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="email">Your Email</label>
+                  <input name="email" id="email" type="email" class="form-control" placeholder="you@example.com" required>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="phone">Your Phone</label>
+                  <input name="phone" id="phone" type="number" class="form-control" placeholder="Phone Number" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-2 mb-4">
+              <label for="messageinfo">Additional Info (Optional)</label>
+              <textarea name="messageinfo" id="messageinfo" class="form-control" rows="5" placeholder="Your Detailing"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-main btn-round-full">Proceed to Payment<i class="icofont-simple-right ml-2"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="cta-content">
+          <div class="divider mb-4"></div>
+          <h2 class="mb-5 text-lg">We are pleased to offer you <span class="title-color">super efficient Technology equipment</span></h2>
+          <a href="{% url 'BioTech_App:appointment' %}" class="btn btn-main-2 btn-round-full">Want to make a Personal Visit<i class="icofont-simple-right  ml-2"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

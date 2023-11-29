@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Price Detailing</span>
+          <h1 class="text-capitalize mb-5 text-lg">Your Cart Details</h1>
+            <h3 class="text-white">Place to be for your Bio-Tech Hospital Products</h3>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Our services</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+      {% if messages %}
+            <ul class="text-danger">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Your Cart</h2>
+                {% if cart %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+
+                                <th>Remove</th> <!-- New column for Remove button -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cart %}
+                                <tr>
+                                    <td>{{ item.title }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>KES {{ item.price }}/=</td>
+                                    <td>
+                                        <a href="{% url 'BioTech_App:remove_from_cart' item.product_id %}" class="btn btn-main-2 btn-round-full">Remove</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <p>Total Price: {{ total_price }}</p>
+                {% else %}
+                    <p>Your cart is empty.</p>
+                {% endif %}
+            <a href="{% url 'BioTech_App:product_list' %}" class="btn btn-main-2 btn-round-full">Purchase More Products<i class="icofont-simple-right ml-2"></i></a>
+            </div>
+            <div class="col-md-6">
+                <div class="summary-container, ml-5">
+                 <h2>Summary</h2>
+                {% if cart %}
+                    <ul class="summary-list">
+                        {% for item in cart %}
+                            <li>
+                                <span class="item-title, ml-1">{{ item.title }}</span>
+                                <span class="item-price, ml-1">KES {{ item.price }}/=</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <p class="total-price, ml-5">Total Price: {{ total_price }}</p>
+                    <button class="proceed-btn, ml-5, btn btn-main-2 btn-round-full" onclick="location.href='{% url 'BioTech_App:checkout' %}?cart_summary=true'"  >Proceed to Checkout</button>
+                {% else %}
+                    <p>Your summary is empty.</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section cta-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7">
+				<div class="cta-content">
+					<div class="divider mb-4"></div>
+					<h2 class="mb-5 text-lg">We are pleased to offer you <span class="title-color">super efficient Technology equipment</span></h2>
+					<a href="{% url 'BioTech_App:appointment' %}" class="btn btn-main-2 btn-round-full">Visit our Bio-Tech Department<i class="icofont-simple-right  ml-2"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+ {% endblock %}

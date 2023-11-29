@@ -1,0 +1,133 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Book your Seat</span>
+          <h1 class="text-capitalize mb-5 text-lg">Appointment</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <img src="{% static 'images/about/img-3.jpg' %}" alt="" class="img-fluid">
+        <div class="mt-3">
+          <div class="feature-icon mb-3">
+            <i class="icofont-support text-lg"></i>
+          </div>
+          <span class="h3">Call for an Emergency Service!</span>
+          <h2 class="text-color mt-3">+254 789 125 567 </h2>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+          <h2 class="mb-2 title-color">Book an appointment</h2>
+          <p class="mb-4">Provide the details below to book an appointment.</p>
+
+          <form method="post" action="{% url 'BioTech_App:appointment_view' %}" class="appoinment-form">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="department"></label>
+                    <select name="department" id="department" class="form-control" onchange="updateDoctors()">
+                    <option value="" selected disabled>Choose Department</option>
+                    <option value="ExaminationDiagnosis">Examination & Diagnosis</option>
+                    <option value="Cardiology">Cardiology</option>
+                      <option value="MedicineHealth">Medicine & Health</option>
+                    <option value="Palmology">Ophthalmology</option>
+                      <option value="Paediatrics">Paediatrics</option>
+                    <option value="Radiology">Radiology</option>
+                    <!-- Add other department options as needed -->
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="doctor"></label>
+                    <select name="doctor" id="doctor" class="form-control">
+                    <option value="" selected disabled>Select Doctors</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="date"></label>
+                    <input name="date" id="date" type="text" class="form-control" placeholder="yyyy-mm-dd">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="time"></label>
+                    <input name="time" id="time" type="text" class="form-control" placeholder="Time format example (08:00)">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="name"></label>
+                    <input name="full_name" id="name" type="text" class="form-control" placeholder="Full Name">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="phone"></label>
+                    <input name="phone_number" id="phone" type="Number" class="form-control" placeholder="Phone Number">
+                </div>
+              </div>
+            </div>
+            <div class="form-group-2 mb-4">
+                <label for="message"></label>
+                <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-main btn-round-full">Make Appointment <i class="icofont-simple-right ml-2"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+    const doctorsData = {
+        "ExaminationDiagnosis": ["Dr Edward John", "Dr George Wellington", "Dr Harrisson Samuel", "Dr Henry Samuel"],
+        "Cardiology": ["Dr Lucas Tim", "Dr Thomas Henry"],
+        "MedicineHealth": ["Dr Alexander James", "Dr Harrison Samuel", "Dr Henry Samuel"],
+        "Palmology": ["Dr Henry Samuel"],
+        "Paediatrics": ["Dr Edward John"],
+        "Radiology": ["Dr Harrison Samuel"],
+    };
+
+    function updateDoctors() {
+        const departmentSelect = document.getElementById("department");
+        const doctorSelect = document.getElementById("doctor");
+        const selectedDepartment = departmentSelect.value;
+
+        doctorSelect.innerHTML = '<option value="" selected disabled>Select Doctors</option>';
+
+        if (selectedDepartment in doctorsData) {
+            doctorsData[selectedDepartment].forEach(doctor => {
+                const option = document.createElement("option");
+                option.value = doctor;
+                option.text = doctor;
+                doctorSelect.add(option);
+            });
+        }
+    }
+</script>
+
+{% endblock %}

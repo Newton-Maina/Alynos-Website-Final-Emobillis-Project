@@ -1,0 +1,28 @@
+
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<section class="section confirmation">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+          <div class="confirmation-content text-center">
+            <i class="icofont-check-circled text-lg text-color-2"></i>
+              <h2 class="mt-3 mb-4">Your Payment is Successful</h2>
+              {% if messages %}
+                {% for message in messages %}
+                  <p class="alert alert-success">{{ message }}</p>
+                {% endfor %}
+              {% endif %}
+              <p>We will contact you for shipping details soon.</p>
+          <a href="{% url 'BioTech_App:index' %}" class="btn btn-main-2 btn-round-full">Back to HomePage<i class="icofont-simple-right ml-2"></i></a>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

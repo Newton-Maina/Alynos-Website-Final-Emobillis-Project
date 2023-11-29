@@ -1,0 +1,99 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Product Detailing</span>
+          <h1 class="text-capitalize mb-5 text-lg">{{ product.title }}</h1>
+            <span class="text-white">Place to be for your Bio-Tech Hospital Products</span>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Our services</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section product-details">
+  <div class="container">
+  {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    <div class="row">
+        <div class="product-details-content">
+          <h2>{{ product.title }}</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="product-image mb-4">
+                <img src="{{ product_detail.image.url }}" alt="{{ product_detail.product.title }} Image" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Price:</strong> KES:{{ product.price }}</p>
+                <p><strong>Stock Quantity:</strong> {{ product_detail.stock_quantity }}</p>
+                <p><strong>Availability:</strong> {% if product_detail.is_available %} In Stock {% else %} Out of Stock {% endif %}</p>
+                <p><strong>Additional Information:</strong> {{ product_detail.additional_info }}</p>
+                <p><strong>Specifications:</strong></p>
+                <div class="divider my-4"></div>
+                <ul class="list-unstyled product-specifications">
+                  <li><i class="icofont-check mr-2"></i>{{ product_detail.specifications1}}</li>
+                  <li><i class="icofont-check mr-2"></i>{{ product_detail.specifications2}}</li>
+                  <li><i class="icofont-check mr-2"></i>{{ product_detail.specifications3}}</li>
+                  <li><i class="icofont-check mr-2"></i>{{ product_detail.specifications4}}</li>
+                </ul>
+
+                <form method="post" action="{% url 'BioTech_App:add_cart' product.id %}">
+                {% csrf_token %}
+                 <div class="form-group">
+                     <p>Would you wish to add this item to your Cart and continue viewing more Products?<br>Enter the quantity you would wish to purchase:</p>
+                     <label for="id_quantity">Quantity:</label>
+                     <input type="number" name="quantity" id="id_quantity" min="1" class="form-control" required>
+                 </div>
+                    <button type="submit" class="btn btn-main-2 btn-round-full">Add to Cart<i class="icofont-simple-right ml-2"></i></button>
+                    <a href="{% url 'BioTech_App:view_cart' %}" class="btn btn-main-2 btn-round-full">View Cart<i class="icofont-simple-right ml-2"></i></a>
+             </form>
+            </div>
+
+              <a href="{% url 'BioTech_App:product_list' %}" class="btn btn-main-2 btn-round-full">More Products<i class="icofont-simple-right ml-2"></i></a>
+
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section cta-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7">
+				<div class="cta-content">
+					<div class="divider mb-4"></div>
+					<h2 class="mb-5 text-lg">We are pleased to offer you <span class="title-color">super efficient Technology equipment</span></h2>
+					<a href="{% url 'BioTech_App:appointment' %}" class="btn btn-main-2 btn-round-full">Visit our Bio-Tech Department<i class="icofont-simple-right  ml-2"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+ {% endblock %}

@@ -1,0 +1,218 @@
+{%extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">About Us</span>
+          <h1 class="text-capitalize mb-5 text-lg">About Us</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">About Us</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<h2 class="title-color">Personal care for your healthy living</h2>
+			</div>
+			<div class="col-lg-8">
+				<p>Introducing Alynos BioTech/Sales System, a cutting-edge solution at the forefront of the biotechnology and sales industry. Our system seamlessly integrates advanced technologies to streamline your sales processes and elevate your business to new heights.
+                    <br>
+
+Alynos BioTech/Sales System is designed to enhance efficiency, accuracy, and overall productivity. Through intuitive user interfaces and robust features, your team will experience a significant reduction in time spent on manual tasks, allowing them to focus on what they do best—building relationships and driving sales.
+                    <br>
+
+Countless industry leaders have chosen Alynos BioTech/Sales System to revolutionize their operations. Highly regarded by prominent figures in the biotech sector, our system comes highly recommended by key influencers and decision-makers who have witnessed firsthand the transformative impact on their businesses.</p>
+				<img src="{% static 'images/about/sign.png' %}" alt="" class="img-fluid">
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="fetaure-page ">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item mb-5 mb-lg-0">
+					<img src="{% static 'images/about/about-1.jpg' %}" alt="" class="img-fluid w-100">
+					<h4 class="mt-3">Healthcare for Kids</h4>
+					<p> We Provide expert and specialized Pediatrics to take care of your child's health.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item mb-5 mb-lg-0">
+					<img src="{% static 'images/about/about-2.jpg' %}" alt="" class="img-fluid w-100">
+					<h4 class="mt-3">Medical Counseling</h4>
+					<p>Our Medical and Health department ensures that you receive top notch consultations.</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item mb-5 mb-lg-0">
+					<img src="{% static '' %}images/about/about-3.jpg" alt="" class="img-fluid w-100">
+					<h4 class="mt-3">Modern Equipments</h4>
+					<p>We have top-grade technological equipment for your hospital's laboratory needs .</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item">
+					<img src="{% static 'images/about/about-4.jpg' %}" alt="" class="img-fluid w-100">
+					<h4 class="mt-3">Qualified Doctors</h4>
+					<p>We have top qualified specialists in various departments offered in the Medical Field.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section awards">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-4">
+				<h2 class="title-color">Our Doctors achievements </h2>
+				<div class="divider mt-4 mb-5 mb-lg-0"></div>
+			</div>
+			<div class="col-lg-8">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="award-img">
+							<img src="{% static 'images/about/3.png' %}" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="award-img">
+							<img src="{% static 'images/about/4.png' %}" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="award-img">
+							<img src="{% static 'images/about/1.png' %}" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="award-img">
+							<img src="{% static 'images/about/2.png' %}" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="award-img">
+							<img src="{% static 'images/about/5.png' %}" alt="" class="img-fluid">
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="award-img">
+							<img src="{% static 'images/about/6.png' %}" alt="" class="img-fluid">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section team">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
+				<div class="section-title text-center">
+					<h2 class="mb-4">Meet Our Specialist</h2>
+					<div class="divider mx-auto my-4"></div>
+					<p>Here, medical expertise seamlessly converges with sales acumen, ensuring your team is equipped with unparalleled insights to navigate the complexities of the healthcare industry. Backed by a dedicated doctor department, our system empowers your sales force to tailor strategies, position products with medical precision, and build trust with healthcare professionals. </p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+    {% for doctor in doctors %}
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="team-block mb-5 mb-lg-0">
+                <img src="{{ doctor.image.url }}" alt="{{ doctor.name }} Image" class="img-fluid w-100">
+
+                <div class="content">
+                    <h4 class="mt-4 mb-0"><a href="{% url 'BioTech_App:doctor_single' doctor.id %}">{{ doctor.name }}</a></h4>
+                    <p>{{ doctor.specialization }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+    </div>
+
+</section>
+
+<section class="section testimonial">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 offset-lg-6">
+				<div class="section-title">
+					<h2 class="mb-4">What they say about us</h2>
+					<div class="divider  my-4"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-lg-6 testimonial-wrap offset-lg-6">
+				<div class="testimonial-block">
+					<div class="client-info ">
+						<h4>Amazing service!</h4>
+						<span>John Partho</span>
+					</div>
+					<p>"Alynos BioTech/Sales System has completely redefined the way we approach sales in our biotech firm. It's a game-changer, streamlining processes and boosting our team's performance."</p>
+					<i class="icofont-quote-right"></i>
+					
+				</div>
+
+				<div class="testimonial-block">
+					<div class="client-info">
+						<h4>Expert doctors!</h4>
+						<span>Mullar Sarth</span>
+					</div>
+					<p>Impressive! Alynos has significantly increased our sales team's efficiency. The intuitive interface and powerful features make it a must-have for any biotech company looking to stay competitive."</p>
+					<i class="icofont-quote-right"></i>
+				</div>
+
+				<div class="testimonial-block">
+					<div class="client-info">
+						<h4>Good Support!</h4>
+						<span>Kolis Mullar</span>
+					</div>
+					<p>"Using Alynos has been a revelation for our team. The system's adaptability to the intricacies of the biotech sector sets it apart. Highly recommended for anyone serious about sales excellence."</p>
+					<i class="icofont-quote-right"></i>
+				</div>
+
+				<div class="testimonial-block">
+					<div class="client-info">
+						<h4>Nice Environment!</h4>
+						<span>Partho Sarothi</span>
+					</div>
+					<p>We were initially skeptical, but Alynos has exceeded our expectations. The endorsements from industry peers are well-deserved. This system has become an indispensable asset for our sales strategy."</p>
+					<i class="icofont-quote-right"></i>
+				</div>
+
+				<div class="testimonial-block">
+					<div class="client-info">
+						<h4>Modern Service!</h4>
+						<span>Kolis Mullar</span>
+					</div>
+					<p>"Alynos BioTech/Sales System gets a big thumbs up from us. The positive impact on our bottom line is undeniable. It's a smart investment for any biotech company seeking growth and efficiency."</p>
+					<i class="icofont-quote-right"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,397 @@
+
+<!-- Slider Start -->
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<section class="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 col-xl-7">
+				<div class="block">
+					<div class="divider mb-3"></div>
+					<span class="text-uppercase text-sm letter-spacing ">Your Path to Total Healthcare Solutions</span>
+					<h1 class="mb-3 mt-3">Empowering Health and Bio-Tech Innovation</h1>
+
+					<p class="mb-4 pr-5">Experience groundbreaking healthcare solutions tailored to your needs. Our commitment to excellence ensures a trusted partnership in your journey to optimal health and cutting-edge biotechnology.</p>
+					<div class="btn-container ">
+						<a href="{% url 'BioTech_App:appointment' %}" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Book Your Appointment <i class="icofont-simple-right ml-2  "></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="features">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="feature-block d-lg-flex">
+					<div class="feature-item mb-5 mb-lg-0">
+						<div class="feature-icon mb-4">
+							<i class="icofont-surgeon-alt"></i>
+						</div>
+						<span>24/7 Support</span>
+						<h4 class="mb-3">Convenient Online Appointments</h4>
+						<p class="mb-4">Access our round-the-clock support for emergencies and experience the future of family medicine with hassle-free online appointments.</p>
+						<a href="{% url 'BioTech_App:appointment' %}" class="btn btn-main btn-round-full">Schedule Now</a>
+					</div>
+
+					<div class="feature-item mb-5 mb-lg-0">
+						<div class="feature-icon mb-4">
+							<i class="icofont-ui-clock"></i>
+						</div>
+						<span>Flexible Hours</span>
+						<h4 class="mb-3">Tailored Working Schedule</h4>
+						<ul class="w-hours list-unstyled">
+		                    <li class="d-flex justify-content-between">Open Mon - Wed : <span>8:00 AM - 5:00 PM</span></li>
+		                    <li class="d-flex justify-content-between">Extended Thu - Fri : <span>9:00 AM - 5:00 PM</span></li>
+		                    <li class="d-flex justify-content-between">Weekends Sat - Sun : <span>10:00 AM - 5:00 PM</span></li>
+		                </ul>
+					</div>
+
+					<div class="feature-item mb-5 mb-lg-0">
+						<div class="feature-icon mb-4">
+							<i class="icofont-support"></i>
+						</div>
+						<span>Emergency Hotline</span>
+						<h4 class="mb-3">Call Us Now at 0746 460 000</h4>
+						<p>For immediate support during emergencies, connect with us. Experience the principles of family medicine in urgent situations.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section about">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-4 col-sm-6">
+				<div class="about-img">
+					<img src="{% static 'images/about/img-1.jpg' %}" alt="" class="img-fluid">
+					<img src="{% static 'images/about/img-2.jpg' %}" alt="" class="img-fluid mt-4">
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6">
+				<div class="about-img mt-4 mt-lg-0">
+					<img src="{% static 'images/about/img-3.jpg' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="about-content pl-4 mt-4 mt-lg-0">
+					<h2 class="title-color">Personalized Care <br>& Healthy Living</h2>
+					<p class="mt-4 mb-5">Embark on a journey of optimal health with our leading medical services. Experience personalized care and a commitment to your well-being.</p>
+
+					<a href="{% url 'BioTech_App:department' %}" class="btn btn-main-2 btn-round-full btn-icon">Explore Our Services<i class="icofont-simple-right ml-3"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="cta-section ">
+	<div class="container">
+		<div class="cta position-relative">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-doctor"></i>
+						<span class="h3">58</span>k
+						<p>Happy People</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-flag"></i>
+						<span class="h3">700</span>+
+						<p>Surgery Completed</p>
+					</div>
+				</div>
+				
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-badge"></i>
+						<span class="h3">40</span>+
+						<p>Expert Doctors</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="counter-stat">
+						<i class="icofont-globe"></i>
+						<span class="h3">20</span>
+						<p>Worldwide Branch</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section service gray-bg">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<h2>Exceptional Patient Care</h2>
+					<div class="divider mx-auto my-4"></div>
+					<p>Embark on a journey of award-winning healthcare where your well-being is our foremost priority. Discover the difference in our services, surpassing necessities to provide unparalleled comfort and care.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-item mb-4">
+					<div class="icon d-flex align-items-center">
+						<i class="icofont-laboratory text-lg"></i>
+						<h4 class="mt-3 mb-3">Cutting-edge Laboratory Services</h4>
+					</div>
+
+					<div class="content">
+						<p class="mb-4">Experience innovative laboratory services that redefine diagnostics, ensuring precision and speed in every test. Your health, our priority.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-item mb-4">
+					<div class="icon d-flex align-items-center">
+						<i class="icofont-heart-beat-alt text-lg"></i>
+						<h4 class="mt-3 mb-3">Comprehensive Heart Care</h4>
+					</div>
+					<div class="content">
+						<p class="mb-4">Trust in our comprehensive approach to heart health. From preventive measures to advanced treatments, we're committed to keeping your heart beating strong.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-item mb-4">
+					<div class="icon d-flex align-items-center">
+						<i class="icofont-tooth text-lg"></i>
+						<h4 class="mt-3 mb-3">Advanced Dental Care</h4>
+					</div>
+					<div class="content">
+						<p class="mb-4">Experience the future of dental care with our advanced treatments and personalized services. Your smile, our commitment to perfection.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-item mb-4">
+					<div class="icon d-flex align-items-center">
+						<i class="icofont-crutch text-lg"></i>
+						<h4 class="mt-3 mb-3">Innovative Body Surgery</h4>
+					</div>
+
+					<div class="content">
+						<p class="mb-4">Explore advanced body surgery options tailored to your needs. Our skilled surgeons prioritize your well-being to ensure a smooth and successful recovery.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-item mb-4">
+					<div class="icon d-flex align-items-center">
+						<i class="icofont-brain-alt text-lg"></i>
+						<h4 class="mt-3 mb-3">Neurology Advancements</h4>
+					</div>
+					<div class="content">
+						<p class="mb-4">Experience cutting-edge neurology surgery with our specialized team. We prioritize your neurological health, ensuring personalized care and successful outcomes.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-item mb-4">
+					<div class="icon d-flex align-items-center">
+						<i class="icofont-dna-alt-1 text-lg"></i>
+						<h4 class="mt-3 mb-3">Comprehensive Gynecology</h4>
+					</div>
+					<div class="content">
+						<p class="mb-4">Trust in our comprehensive gynecological care. Our dedicated team focuses on women's health, providing personalized solutions and compassionate support.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section testimonial-2 gray-bg">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7">
+				<div class="section-title text-center">
+					<h2>Our Patients Speak</h2>
+					<div class="divider mx-auto my-4"></div>
+					<p>Discover the stories of our satisfied patients who experienced exceptional care and support. Their words reflect our commitment to providing outstanding healthcare services.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-12 testimonial-wrap-2">
+
+				<div class="testimonial-block style-2 gray-bg">
+					<i class="icofont-quote-right"></i>
+
+					<div class="testimonial-thumb">
+						<img src="{% static 'images/team/test-thumb11.jpg' %}" alt="" class="img-fluid">
+					</div>
+
+					<div class="client-info">
+						<h4>A Truly Amazing Experience!</h4>
+						<span>John Partho</span>
+						<p>
+							I had an amazing experience with the outstanding service provided. The facility is top-notch, and the staff is incredibly caring and professional.
+						</p>
+					</div>
+				</div>
+
+				<div class="testimonial-block style-2 gray-bg">
+					<i class="icofont-quote-right"></i>
+
+					<div class="testimonial-thumb">
+						<img src="{% static 'images/team/test-thumb12.jpg' %}" alt="" class="img-fluid">
+					</div>
+
+					<div class="client-info">
+						<h4>Expert Doctors, Exceptional Care!</h4>
+						<span>Mullar Sarth</span>
+						<p>
+							The expertise of the doctors here is commendable. They provided exceptional care, and the facilities are equipped with the latest technology.
+						</p>
+					</div>
+				</div>
+
+				<div class="testimonial-block style-2 gray-bg">
+					<i class="icofont-quote-right"></i>
+
+					<div class="testimonial-thumb">
+						<img src="{% static 'images/team/test-thumb13.jpg' %}" alt="" class="img-fluid">
+					</div>
+
+					<div class="client-info">
+						<h4>Outstanding Support!</h4>
+						<span>Kolis Mullar</span>
+						<p>
+							The support I received here was outstanding. The staff is attentive, and the overall experience was beyond my expectations.
+						</p>
+					</div>
+				</div>
+
+				<div class="testimonial-block style-2 gray-bg">
+					<i class="icofont-quote-right"></i>
+
+					<div class="testimonial-thumb">
+						<img src="{% static 'images/team/test-thumb14.jpg' %}" alt="" class="img-fluid">
+					</div>
+
+					<div class="client-info">
+						<h4>A Comfortable and Welcoming Environment!</h4>
+						<span>Partho Sarothi</span>
+						<p class="mt-4">
+							The environment here is nice and welcoming. The facilities are modern, and I felt comfortable throughout my visit.
+						</p>
+					</div>
+				</div>
+
+				<div class="testimonial-block style-2 gray-bg">
+					<i class="icofont-quote-right"></i>
+
+					<div class="testimonial-thumb">
+						<img src="{% static 'images/team/test-thumb5.jpg' %}" alt="" class="img-fluid">
+					</div>
+
+					<div class="client-info">
+						<h4>Modern Services That Exceed Expectations!</h4>
+						<span>Kolis Mullar</span>
+						<p>
+							The modern services offered here exceeded my expectations. The attention to detail and commitment to quality are truly commendable.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section clients">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7">
+				<div class="section-title text-center">
+					<h2>Our Supportive Partnerships</h2>
+					<div class="divider mx-auto my-4"></div>
+					<p>Discover the strong partnerships that contribute to our success in providing exceptional healthcare. Our dedicated partners support us in delivering top-notch services to our valued patients.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row clients-logo">
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/1.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/2.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/3.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/4.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/5.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/6.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/3.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/4.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/5.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+			<div class="col-lg-2">
+				<div class="client-thumb">
+					<img src="{% static 'images/about/6.png' %}" alt="" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
+   
+
