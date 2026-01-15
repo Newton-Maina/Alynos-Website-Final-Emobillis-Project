@@ -1,5 +1,7 @@
 # Alynos BioTech SuperSystem
 
+![Alynos BioTech SuperSystem](media/og_image/og_image.webp)
+
 Alynos BioTech SuperSystem is a comprehensive Django-based web application designed for biotech and healthcare organizations. It integrates medical services, department management, appointment scheduling, and an e-commerce platform for medical products.
 
 ## Features
